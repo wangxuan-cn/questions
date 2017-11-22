@@ -1,5 +1,6 @@
 import java.util.concurrent.*;
 
+//ä¿è¯ä¸‰ä¸ªçº¿ç¨‹ä¾æ¬¡æŒ‰é¡ºåºæ‰§è¡Œ
 public class TestJoin {
     public static void main(String[] args) throws InterruptedException {
         final Thread t1 = new Thread(new Runnable() {
@@ -28,7 +29,7 @@ public class TestJoin {
             }
         }, "T3");
 
-        //Ê¹ÓÃµ¥¸öÈÎÎñµÄÏß³Ì³ØÀ´ÊµÏÖ£¬±£Ö¤Ïß³ÌµÄÒÀ´ÎÖ´ĞĞ¡£
+        //ä½¿ç”¨å•ä¸ªä»»åŠ¡çš„çº¿ç¨‹æ± æ¥å®ç°ï¼Œä¿è¯çº¿ç¨‹çš„ä¾æ¬¡æ‰§è¡Œã€‚
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.submit(t1);
         executor.submit(t2);
