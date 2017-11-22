@@ -1,4 +1,4 @@
-//三个线程依次执行示例
+//涓変釜绾跨▼渚濇鎵ц绀轰緥
 public class TestJoin2 {
     public static void main(String[] args) throws InterruptedException {
         final Thread t1 = new Thread(new Runnable() {
