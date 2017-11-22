@@ -1,6 +1,5 @@
-import java.util.concurrent.*;
-
-public class TestJoin {
+//三个线程依次执行示例
+public class TestJoin3 {
     public static void main(String[] args) throws InterruptedException {
         final Thread t1 = new Thread(new Runnable() {
             public void run() {
@@ -9,30 +8,27 @@ public class TestJoin {
         }, "T1");
         final Thread t2 = new Thread(new Runnable() {
             public void run() {
-                System.out.println(Thread.currentThread().getName() + " run 2");
                 try {
+                	  t1.start();
                     t1.join(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                System.out.println(Thread.currentThread().getName() + " run 2");
             }
         }, "T2");
         final Thread t3 = new Thread(new Runnable() {
             public void run() {
-                System.out.println(Thread.currentThread().getName() + " run 3");
                 try {
+                		t2.start();
                     t2.join(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                System.out.println(Thread.currentThread().getName() + " run 3");
             }
         }, "T3");
-
-        //使用单个任务的线程池来实现，保证线程的依次执行。
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        executor.submit(t1);
-        executor.submit(t2);
-        executor.submit(t3);
-        executor.shutdown();
+    
+        t3.start();
     }
 }
