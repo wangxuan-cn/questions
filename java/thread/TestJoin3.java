@@ -9,7 +9,7 @@ public class TestJoin3 {
         final Thread t2 = new Thread(new Runnable() {
             public void run() {
                 try {
-                	  t1.start();
+                	t1.start();
                     t1.join(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -20,7 +20,7 @@ public class TestJoin3 {
         final Thread t3 = new Thread(new Runnable() {
             public void run() {
                 try {
-                		t2.start();
+                	t2.start();
                     t2.join(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
